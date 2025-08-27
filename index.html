@@ -7,24 +7,29 @@
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      line-height: 1.6;
+      line-height: 1.8;
       margin: 0;
       padding: 0;
-      background: #f4f4f9;
-      color: #333;
+      background: #121212;
+      color: #e0e0e0;
     }
     header {
-      background: linear-gradient(135deg, #6a11cb, #2575fc);
+      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
       color: white;
-      padding: 40px 20px;
+      padding: 50px 20px;
       text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
     header h1 {
       margin: 0;
-      font-size: 2.5rem;
+      font-size: 2.8rem;
+      animation: fadeIn 2s ease-in-out;
     }
     header p {
-      font-size: 1.2rem;
+      font-size: 1.3rem;
+      opacity: 0.8;
     }
     .container {
       max-width: 1000px;
@@ -32,25 +37,86 @@
       padding: 20px;
     }
     h2 {
-      color: #2575fc;
+      color: #00bcd4;
       margin-top: 40px;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+    h3 {
+      color: #ff9800;
     }
     p {
       margin-bottom: 20px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+    .visible {
+      opacity: 1 !important;
+      transform: translateY(0) !important;
     }
     .highlight {
-      background: #eaf4ff;
+      background: #1e1e1e;
       padding: 15px;
-      border-left: 5px solid #2575fc;
+      border-left: 5px solid #00bcd4;
       margin: 20px 0;
       border-radius: 5px;
+      transition: transform 0.3s ease;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    .highlight.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .highlight:hover {
+      transform: scale(1.02);
+    }
+    details {
+      background: #1f1f1f;
+      padding: 15px;
+      border-radius: 8px;
+      margin: 15px 0;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    details[open] {
+      background: #2b2b2b;
+    }
+    details.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    summary {
+      font-weight: bold;
+      color: #00bcd4;
     }
     footer {
       text-align: center;
       padding: 20px;
-      background: #333;
+      background: #1c1c1c;
       color: white;
       margin-top: 40px;
+    }
+    button {
+      background: #00bcd4;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 25px;
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      margin: 20px 0;
+    }
+    button:hover {
+      background: #008ba3;
+    }
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
     }
   </style>
 </head>
@@ -61,65 +127,75 @@
   </header>
 
   <div class="container">
-    <!-- Outline -->
-    <h2>Outline</h2>
-    <ul>
-      <li>Introduction</li>
-      <li>Positive Effects of Social Media
-        <ul>
-          <li>Connectivity and Communication</li>
-          <li>Learning and Awareness</li>
-          <li>Opportunities and Growth</li>
-        </ul>
-      </li>
-      <li>Negative Effects of Social Media
-        <ul>
-          <li>Mental Health Issues</li>
-          <li>Addiction and Time Wastage</li>
-          <li>Privacy Concerns</li>
-        </ul>
-      </li>
-      <li>Finding a Healthy Balance</li>
-      <li>Conclusion</li>
-    </ul>
-
-    <!-- Blog Content -->
     <h2>Introduction</h2>
-    <p>Social media has become an inseparable part of modern life. From staying in touch with friends to keeping up with global events, platforms like Instagram, Twitter, and Facebook shape the way we connect, communicate, and consume information. But how does it really affect our lives?</p>
+    <p>Social media has become an inseparable part of modern life. From staying in touch with friends to keeping up with global events, platforms like Instagram, Twitter, and Facebook shape the way we connect, communicate, and consume information. But how does it really affect our lives? While it opens doors to opportunities, it also raises concerns about how much control it has over us. In this blog, we’ll break down the pros and cons of social media and how you can use it wisely.</p>
 
     <h2>Positive Effects of Social Media</h2>
-    <h3>Connectivity and Communication</h3>
-    <p>One of the biggest advantages of social media is its ability to connect people across the globe. Families, friends, and communities can stay in touch regardless of distance, breaking barriers of time and geography.</p>
+    <details>
+      <summary>Connectivity and Communication</summary>
+      <p>One of the biggest advantages of social media is its ability to connect people across the globe. Families, friends, and communities can stay in touch regardless of distance, breaking barriers of time and geography. It has also given rise to online support groups and communities where people can share their experiences. Furthermore, it allows people to collaborate and work together even when they are miles apart. Without social media, our ability to communicate instantly would not be as advanced as it is today.</p>
+    </details>
 
-    <h3>Learning and Awareness</h3>
-    <p>Social media is a powerful tool for education and awareness. It allows people to learn new skills, stay updated with the latest news, and even participate in important social causes.</p>
+    <details>
+      <summary>Learning and Awareness</summary>
+      <p>Social media is a powerful tool for education and awareness. It allows people to learn new skills, stay updated with the latest news, and even participate in important social causes. Platforms like YouTube and LinkedIn offer free resources that were once locked behind classrooms and expensive courses. People are now more aware of global events, cultural differences, and social issues. This exposure makes individuals more empathetic and socially responsible. With just a few clicks, knowledge has become more accessible than ever before.</p>
+    </details>
 
-    <h3>Opportunities and Growth</h3>
-    <p>Many individuals and businesses have leveraged social media to build brands, find career opportunities, and grow professionally. It’s a platform where creativity and innovation can flourish.</p>
+    <details>
+      <summary>Opportunities and Growth</summary>
+      <p>Many individuals and businesses have leveraged social media to build brands, find career opportunities, and grow professionally. It’s a platform where creativity and innovation can flourish. Freelancers and entrepreneurs use it to showcase their skills and reach wider audiences. Businesses have direct access to their customers, making communication and marketing more effective. Additionally, people can find mentorship and networking opportunities that would otherwise be difficult to achieve. Social media has truly democratized opportunities for growth and success.</p>
+    </details>
 
     <h2>Negative Effects of Social Media</h2>
-    <h3>Mental Health Issues</h3>
-    <p>Excessive use of social media can lead to anxiety, depression, and low self-esteem, often caused by constant comparison with others.</p>
+    <details>
+      <summary>Mental Health Issues</summary>
+      <p>Excessive use of social media can lead to anxiety, depression, and low self-esteem, often caused by constant comparison with others. Seeing only the “highlight reel” of other people’s lives creates unrealistic expectations. This can make individuals feel inadequate or less successful. Cyberbullying is another issue that affects people’s mental well-being. Additionally, studies have shown that dopamine-driven scrolling can create addictive patterns that worsen stress and mental exhaustion.</p>
+    </details>
 
-    <h3>Addiction and Time Wastage</h3>
-    <p>Scrolling endlessly through feeds can consume hours of the day, leading to procrastination and reduced productivity.</p>
+    <details>
+      <summary>Addiction and Time Wastage</summary>
+      <p>Scrolling endlessly through feeds can consume hours of the day, leading to procrastination and reduced productivity. It creates a cycle of distraction where people struggle to focus on important tasks. Notifications constantly pulling attention make it harder to concentrate. This time wastage can affect academic performance, professional output, and even personal relationships. What starts as five minutes of checking updates can easily turn into hours of lost time daily.</p>
+    </details>
 
-    <h3>Privacy Concerns</h3>
-    <p>Sharing too much information online can compromise personal privacy and security, making individuals vulnerable to cyber threats.</p>
+    <details>
+      <summary>Privacy Concerns</summary>
+      <p>Sharing too much information online can compromise personal privacy and security, making individuals vulnerable to cyber threats. Hackers can use small details to steal identities and financial information. Even legitimate companies collect and analyze user data, sometimes without clear consent. Once something is posted online, it’s nearly impossible to erase permanently. This means every user should be more cautious about what they share and with whom they share it.</p>
+    </details>
 
     <div class="highlight">
-      <strong>Tip:</strong> Be mindful of your screen time and set healthy boundaries when using social media.
+      <strong>Tip:</strong> Be mindful of your screen time and set healthy boundaries when using social media. Try setting app limits or scheduling offline time each day to maintain balance.
     </div>
 
     <h2>Finding a Healthy Balance</h2>
-    <p>It’s important to strike a balance between online and offline life. Setting time limits, unfollowing toxic accounts, and focusing on meaningful interactions can make social media a more positive experience.</p>
+    <p>It’s important to strike a balance between online and offline life. Setting time limits, unfollowing toxic accounts, and focusing on meaningful interactions can make social media a more positive experience. Engaging in hobbies, spending time outdoors, and connecting face-to-face with loved ones can provide healthier alternatives. Remember, social media should serve you—not control you. Building mindful habits ensures you benefit from technology without becoming enslaved by it.</p>
 
     <h2>Conclusion</h2>
-    <p>Social media is neither entirely good nor bad—it depends on how we use it. By embracing its benefits and being cautious of its drawbacks, we can make it a tool that truly enriches our lives instead of draining them.</p>
+    <p>Social media is neither entirely good nor bad—it depends on how we use it. By embracing its benefits and being cautious of its drawbacks, we can make it a tool that truly enriches our lives instead of draining them. The choice is in our hands: whether to let it distract us endlessly or to use it as a force for growth, knowledge, and connection. The key lies in moderation, awareness, and self-discipline.</p>
+
+    <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})">⬆ Back to Top</button>
   </div>
 
   <footer>
     <p>© 2025 | Written for Blogger | Designed with ❤️</p>
   </footer>
+
+  <script>
+    // Reveal animations when scrolling
+    const revealElements = document.querySelectorAll('h2, p, details, .highlight');
+
+    function revealOnScroll() {
+      const windowHeight = window.innerHeight;
+      revealElements.forEach(el => {
+        const elementTop = el.getBoundingClientRect().top;
+        if (elementTop < windowHeight - 50) {
+          el.classList.add('visible');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', revealOnScroll);
+  </script>
 </body>
 </html>
+
